@@ -13,7 +13,6 @@
 #include "grid.h"
 #include "math_const.h"
 
-// --- AGGIUNGI QUESTA DEFINIZIONE SE NON ESISTE ---
 #ifndef PRE_UPDATE
 #define PRE_UPDATE 2
 #endif
@@ -198,10 +197,8 @@ void FixEM::pre_update()
       }
       continue;
     }
-    //double q = particle->species[p.ispecies].charge;
-    //double m = particle->species[p.ispecies].mass;
-    double q = 1;
-    double m = 1;
+    double q = particle->species[p.ispecies].charge;
+    double m = particle->species[p.ispecies].mass;
     if (std::fabs(q) < 1e-12 || m <= 0.0) {
       if (comm->me == 0) {
         char msg[128];
